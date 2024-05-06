@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" dis="website designing , ">
+    <title>Document</title>
+</head>
+<body>
+  <form>
+    <label >Enter Your Name:</label>
+    <input type="text" id="studentname" >
+    <BR>
+
+    <label >Enter Your Roll No:</label>
+    <input type="number" id="rollno">
+  
+    <BR>
+
+    <label >Enter Your Math Marks:</label>
+    <input type="number" id="math">
+    <BR>
+
+    <label>Enter Your Physics Marks:</label>
+    <input type="number" id="physics">
+    <BR>
+
+    <label >Enter Your Chemistry Marks:</label>
+    <input type="number" id="chemisty">
+    <BR>
+
+    <label >Enter Your Urdu Marks:</label>
+    <input type="number" id="urdu">
+    <BR>
+
+    <label>Enter Your English Marks:</label>
+    <input type="number" id="english">
+  </form>
+    <button onclick="marksheet()">Submit</button>
+ 
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Roll No:</th>
+                <th>Math</th>
+                <th>Physics</th>
+                <th>Chemistry</th>
+                <th>Urdu</th>
+                <th>English</th>
+                <th>Total Marks</th>
+                <th>Obtained Marks</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody id="result">
+
+        </tbody>
+    </table>
+
+    <script>
+        function marksheet(){
+            var studentname= document.getElementById("studentname").value;
+            var rollno=document.getElementById("rollno").value;
+            var math=parseInt(document.getElementById("math").value);
+            var physics=parseInt(document.getElementById("physics").value);
+            var chemisty=parseInt(document.getElementById("chemisty").value);
+            var urdu=parseInt(document.getElementById("urdu").value);
+            var english=parseInt(document.getElementById("english").value);
+
+            var totalmarks=500;
+            var Obtainedmarks=math+physics+chemisty+urdu+english;
+           var Percentage=(Obtainedmarks/totalmarks*100);
+          var grade;
+          if(Percentage>=90){
+            grade="A+";
+          }
+          else if(Percentage>=80){
+            grade="A-";
+          }
+          else if(Percentage>=70){
+            grade="A";
+          }
+          else if(Percentage>=60){
+            grade="B";
+          }
+          else if(Percentage>=55){
+            grade="C";
+          }
+          else if(Percentage>=50){
+            grade="D";
+          }
+          else if(Percentage>=45){
+            grade="E";
+          }
+          else if(Percentage<45){
+            grade="Fail";
+          }
+
+          document.querySelector("#result").innerHTML+=`
+          <tr>
+                <td>${studentname}</td>
+                <td>${rollno}</td>
+                <td>${math}</td>
+                <td>${physics}</td>
+                <td>${chemisty}</td>
+                <td>${urdu}</td>
+                <td>${english}</td>
+                <td>${totalmarks}</td>
+                <td>${Obtainedmarks}</td>
+                <td>${Percentage}%</td>
+                <td>${grade}</td>
+            </tr>
+          
+          `;
+
+
+        }
+      
+    </script>
+</body>
+</html>
